@@ -1,0 +1,148 @@
+<!-- page-piling.component.html -->
+<header class="fixed-header">
+    <div class="container">
+      <div class="logo">LIVEINTECH</div>
+      <nav class="navbar">
+        <ul class="nav-list">
+          <li class="nav-item" *ngFor="let section of sections">
+            <a href="javascript:void(0)" (click)="scrollToSpecificSection(section.id)" class="nav-link">{{section.value}}</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <main class="main-content">
+    <div class="page-piling-container">
+      <div class="section" *ngFor="let sec of sections" [id]="'section'+sec.id">
+        
+        <!-- Hero Section -->
+        <div class="hero-section" *ngIf="sec.id===1">
+          <div class="background-image-container">
+            <img src="assets/free-nature-images.jpg" alt="Operational Partner Image" class="background-image">
+          </div>
+          <div class="content-wrapper">
+            <div class="hero-content">
+              <h1 class="heading"><span class="accent-text">OPERATIONAL</span> PARTNERS</h1>
+              <p class="hero-text">
+                We collaborate with exceptional 
+                <a href="#" class="text-link">Entrepreneurs</a> and 
+                <a href="#" class="text-link">Intrapreneurs</a> to bring meaningful ideas to reality. 
+                We encourage collaboration through validation, talent, resources, and investment.
+              </p>
+              <button class="cta-button" (click)="scrollToSpecificSection(2)">Learn More</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Idea to Iconic Section -->
+        <div class="split-section" *ngIf="sec.id===2">
+          <div class="content-wrapper">
+            <div class="text-column">
+              <h2 class="section-heading">TOGETHER FROM IDEA TO <span class="highlight">ICONIC</span></h2>
+              <p class="section-text">
+                We believe in an outcome-driven process to test assumptions, eliminate confirmation biases, and operate with passion.
+                We reduce a process that could take years to months. We ensure that you are pursuing the right market, that you are fully validated,
+                and that you are surrounded by incredible teammates.
+              </p>
+              <button class="secondary-button" (click)="scrollToSpecificSection(3)">Our Process</button>
+            </div>
+            <div class="media-column">
+              <img src="assets/2.png" alt="Operational Partner Image" class="section-image"> 
+            </div>
+          </div>
+        </div>
+        
+        <!-- Cocreate Section -->
+        <div class="split-section reverse" *ngIf="sec.id===3">
+          <div class="content-wrapper">
+            <div class="text-column">
+              <h2 class="section-heading">COCREATE & COINVEST</h2>
+              <p class="section-text">
+                We provide a streamlined risk-reward framework for co-creation, encompassing validation, 
+                solutioning, risk mitigation, and capability-capitalTM, so that entrepreneurs may focus on product and market fit.
+              </p>
+              <div class="action-buttons">
+                <button class="outlined-button" (click)="openDialog('cocreate')">Learn About Cocreation</button>
+                <button class="outlined-button" (click)="openDialog('coinvest')">Investment Model</button>
+              </div>
+            </div>
+            <div class="media-column">
+              <video id="videoPlayer" autoplay muted loop class="section-video">
+                <source src="assets/whystudio_video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Stats Section -->
+        <div class="stats-section" *ngIf="sec.id===4">
+          <div class="content-wrapper">
+            <div class="stats-container">
+              <div class="stat-card" *ngFor="let stat of statistics">
+                <h3 class="stat-number">{{stat.value}}</h3>
+                <p class="stat-label">{{stat.label}}</p>
+              </div>
+            </div>
+            
+            <div class="tracks-container">
+              <h2 class="tracks-heading">Focused <span class="highlight">Tracks</span></h2>
+              
+              <div class="track-cards">
+                <div class="track-card">
+                  <h3 class="track-title">Web3 / DLT</h3>
+                  <p class="track-subtitle">Permissionless Distributed Ownership</p>
+                  <p class="track-description">Web3 Solutioning, Decentralized Finance (DeFi) and dApps, Blockchain Infrastructure, and Digital Identity Solutions; Cloud-Based Collaboration.</p>
+                </div>
+                
+                <!-- Additional track cards can be added here -->
+              </div>
+            </div>
+            
+            <button class="cta-button" (click)="contactUs()">Partner With Us</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </main>
+  
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">LIVEINTECH</div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Team</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">Cocreation</a></li>
+              <li><a href="#">Investment</a></li>
+              <li><a href="#">Validation</a></li>
+              <li><a href="#">Resources</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Connect</h4>
+            <ul class="social-links">
+              <li><a href="#" class="social-link">LinkedIn</a></li>
+              <li><a href="#" class="social-link">Twitter</a></li>
+              <li><a href="#" class="social-link">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© {{currentYear}} LiveInTech. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
